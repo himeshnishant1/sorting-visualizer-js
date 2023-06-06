@@ -32,7 +32,7 @@ visualizeButton.addEventListener("click", event => {
 
 
 /* Display Sorted Array */
-function Display(){
+async function Display(){
     const output = document.querySelector(".output");
     output.classList.remove("hide");
     const outputField = output.children[1];
@@ -78,7 +78,7 @@ async function BubbleSort(pillars) {
         }
     }
 
-    Display();
+    await Display();
     
 }
 
@@ -112,7 +112,7 @@ async function InsertionSort(pillars){
         arr[j + 1] = key; 
     } 
 
-    Display();
+    await Display();
 }
 
 /* Merge Sort Technique*/
@@ -190,9 +190,9 @@ async function triggerMergeSort(pillars){
         pillars[i].style.height = `${Math.floor((arr[i] * 100) / max)}%`;
     }
     await sleep(5000);
-    mergeSort(0, arr.length - 1, pillars, max);
+    await mergeSort(0, arr.length - 1, pillars, max);
 
-    Display();
+    await Display();
 }
 
 /* Selection Sort Technique */
@@ -222,5 +222,5 @@ async function selectionSort(pillars)
         await sleep(100);
     }
 
-    Display();
+    await Display();
 } 
