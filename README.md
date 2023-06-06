@@ -1,6 +1,8 @@
 # sorting-visualizer-js
 Sorting Techniques Visualizer
 
+Try Applcation Now: https://sorting-visualizer-engine.netlify.app/
+
 ![sorting_visualizer1](https://github.com/himeshnishant1/sorting-visualizer-js/assets/24701555/f4fcbe64-8e79-4031-9c47-102c6e5d93d5)
 
 
