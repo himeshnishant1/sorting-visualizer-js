@@ -27,7 +27,17 @@ visualizeButton.addEventListener("click", event => {
     if(algoSelector.value === "insertion")  InsertionSort(pillars);
     if(algoSelector.value === "merge")  triggerMergeSort(pillars);
     if(algoSelector.value === "selection")  selectionSort(pillars);
+
 });
+
+
+/* Display Sorted Array */
+function Display(){
+    const output = document.querySelector(".output");
+    output.classList.remove("hide");
+    const outputField = output.children[1];
+    outputField.value = arr;
+}
 
 
 const generateButton = document.querySelector(".generate-array-btn");
@@ -38,7 +48,7 @@ generateButton.addEventListener("click", event => {
     if(inputSize < 3)   inputSize = 3;
     if(inputSize > 200)    inputSize = 200;
     arr.length = 0;
-    for(let i = 0; i < inputSize; i++) arr.push(Math.floor(Math.random() * 200));
+    for(let i = 0; i < inputSize; i++)  arr.push(parseInt(Date.now() * Math.random()) % 1000);
     inputArray.value = arr;
 });
 
@@ -67,6 +77,9 @@ async function BubbleSort(pillars) {
             await sleep(0);
         }
     }
+
+    Display();
+    
 }
 
 /* Insertion Sort Technique */
@@ -98,6 +111,8 @@ async function InsertionSort(pillars){
         } 
         arr[j + 1] = key; 
     } 
+
+    Display();
 }
 
 /* Merge Sort Technique*/
@@ -176,6 +191,8 @@ async function triggerMergeSort(pillars){
     }
     await sleep(5000);
     mergeSort(0, arr.length - 1, pillars, max);
+
+    Display();
 }
 
 /* Selection Sort Technique */
@@ -204,4 +221,6 @@ async function selectionSort(pillars)
         }
         await sleep(100);
     }
+
+    Display();
 } 

@@ -148,6 +148,30 @@ main{
     box-shadow: rgb(59, 59, 59) 0px 1px 2px;
 }
 
+.container .output{
+    max-height: 20%;
+    margin: 0px 10px;
+    padding: 10px;
+    display: flex;
+    background-color: rgb(216, 216, 216);
+    border-radius: 10px;
+}
+
+.container .hide{
+    display: none;
+}
+
+.output .output-label{
+    padding: 10px;
+    font-size: 20px;
+}
+
+.output .output-array{
+    padding: 5px 10px;
+    border-radius: 10px;
+    width: 90%;
+}
+
 .container .display{
     height: 100%;
     padding: 20px;
