@@ -12,6 +12,9 @@ const visualizeButton = document.querySelector(".visualize-sort-btn");
 
 /* On Click Visualization Begins*/
 visualizeButton.addEventListener("click", event => {
+    const output = document.querySelector(".output");
+    output.classList.add("hide");
+    arr.length = 0;
     const stringArray = inputArray.value.toString().replace(/\s+/, "").split(",");
     stringArray.forEach(value => value.length ? arr.push(parseInt(value)): console.log());
     inputArray.value = arr;
