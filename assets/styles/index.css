@@ -190,3 +190,64 @@ main{
     margin-top: auto;
     background-color: rgb(170, 0, 0);
 }
+
+@media screen and (max-width: 1300px){
+    .presets .input-array{
+        margin: 10px 0px;
+    }
+    
+    .input-array .input-label{
+        padding: 5px;
+        font-size: 16px;
+    }
+    
+    .input-array .array-input{
+        padding: 5px;
+        margin: 0px;
+        width: 200px;
+    }
+    
+    .presets .or-label{
+        margin: 10px 0px;
+        font-size: 16px;
+        padding: 5px;
+    }
+    
+    .presets .random-array{
+        margin: 10px 0px;
+    }
+    
+    .random-array .size-label{
+        padding: 5px;
+        font-size: 16px;
+    }
+    
+    .random-array .input-array-size{
+        padding: 5px;
+        margin: 0px;
+        width: 70px;
+    }
+    
+    .random-array .generate-array-btn{
+        padding: 5px;
+    }
+        
+    .presets .algo{
+        margin: 10px 0px;
+    }
+    
+    .algo .choose-algo{
+        padding: 5px;
+        width: 200px;
+    }
+    
+    .presets .visualize{
+        margin: 10px 0px;
+    }
+    
+    .visualize .visualize-sort-btn{
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+    
+}
