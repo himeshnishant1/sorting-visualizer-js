@@ -17,3 +17,4 @@ Try Applcation Now: https://sorting-visualizer-engine.netlify.app/
 - Insertion Sort
 - Selection Sort
 - Merge Sort
+- Quick Sort
