@@ -30,6 +30,7 @@ visualizeButton.addEventListener("click", event => {
     if(algoSelector.value === "insertion")  InsertionSort(pillars);
     if(algoSelector.value === "merge")  triggerMergeSort(pillars);
     if(algoSelector.value === "selection")  selectionSort(pillars);
+    if(algoSelector.value === "quick")  triggerQuickSort(pillars);
 
 });
 
@@ -227,3 +228,81 @@ async function selectionSort(pillars)
 
     await Display();
 } 
+
+/* Quick Sort Technique */
+async function swap(leftIndex, rightIndex, pillars, max){
+    let temp = arr[leftIndex];
+    arr[leftIndex] = arr[rightIndex];
+    arr[rightIndex] = temp;
+    for(let count = 0; count < pillars.length; count++){
+        pillars[count].style.height = `${Math.floor((arr[count] * 100) / max)}%`;
+    }
+    await sleep(50); 
+}
+
+async function partition(left, right, pillars, max) {
+    let pivot   = arr[Math.floor((right + left) / 2)], //middle element
+        i       = left, //left pointer
+        j       = right; //right pointer
+    
+    while (i <= j) {
+        while (arr[i] < pivot) {
+            i++;
+        }
+        while (arr[j] > pivot) {
+            j--;
+        }
+        if (i <= j) {
+            await swap(i, j, pillars); //sawpping two elements
+            i++;
+            j--;
+        }
+    }
+    await sleep(5);
+    return i;
+}
+
+async function quickSort(left, right, pillars, max) {
+    let index;
+    if (arr.length > 1) {
+        index = await partition(left, right, pillars); //index returned from partition
+        //console.log(index);
+        if (left < index - 1) { //more elements on the left side of the pivot
+            for(let count = 0; count < pillars.length; count++){
+                pillars[count].style.height = `${Math.floor((arr[count] * 100) / max)}%`;
+            }
+            await sleep(20); 
+            await quickSort(left, index - 1, pillars);
+            for(let count = 0; count < pillars.length; count++){
+                pillars[count].style.height = `${Math.floor((arr[count] * 100) / max)}%`;
+            }
+            await sleep(20); 
+        }
+        if (index < right) { //more elements on the right side of the pivot 
+            for(let count = 0; count < pillars.length; count++){
+                pillars[count].style.height = `${Math.floor((arr[count] * 100) / max)}%`;
+            }
+            await sleep(20); 
+            await quickSort(index, right, pillars);
+            for(let count = 0; count < pillars.length; count++){
+                pillars[count].style.height = `${Math.floor((arr[count] * 100) / max)}%`;
+            }
+            await sleep(20); 
+        }
+    }
+}
+
+async function triggerQuickSort(pillars){
+    let max = arr[0];
+    arr.forEach(el => {
+        max = Math.max(max, el);
+    });
+
+    for(let i = 0; i < pillars.length; i++){
+        pillars[i].style.height = `${Math.floor((arr[i] * 100) / max)}%`;
+    }
+    await sleep(5000);
+    await quickSort(0, arr.length - 1, pillars, max);
+
+    await Display();
+}
